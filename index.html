@@ -1,134 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" type="text/javascript"></script>
-    <title>Florecitas_para_luny</title>
+    <title>Flor animada</title>
 </head>
-<body class="sin_cargar">
-    <div class="novhe"></div>
-        <div class="flores">
-            <div class="flores flores--1">
-                <div class="flores__hojas flores__hojas--1">
-                    <div class="flores__hojas flores__hojas--1"></div>
-                    <div class="flores__hojas flores__hojas--2"></div>
-                    <div class="flores__hojas flores__hojas--3"></div>
-                    <div class="flores__hojas flores__hojas--4"></div>
-                    <div class="flores__con-circulo"></div>
 
-                    <div class="flores__luz flores__luz--1"></div>
-                    <div class="flores__luz flores__luz--2"></div>
-                    <div class="flores__luz flores__luz--3"></div>
-                    <div class="flores__luz flores__luz--4"></div>
-                    <div class="flores__luz flores__luz--5"></div>
-                    <div class="flores__luz flores__luz--6"></div>
-                    <div class="flores__luz flores__luz--7"></div>
-                    <div class="flores__luz flores__luz--8"></div>
+<body>
+    <div class="contenedor" id="puntos_contenedor">
+    </div> 
 
-                </div>
-                <div class="flores__linea">
-                    <div class="flores__linea__hojas flores__linea__hojas--1"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--2"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--3"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--4"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--5"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--6"></div>
-                </div>              
-            </div>
-            
+    <script>
+        const contenedor = document.getElementById("puntos_contenedor");
+        const numPuntos = 10;
 
-            <div class="flores flores--2">
-                <div class="flores__hojas flores__hojas--2">
-                    <div class="flores__hojas flores__hojas--1"></div>
-                    <div class="flores__hojas flores__hojas--2"></div>
-                    <div class="flores__hojas flores__hojas--3"></div>
-                    <div class="flores__hojas flores__hojas--4"></div>
-                    <div class="flores__con-circulo"></div>
+        function crearPuntos() {
+            const punto = document.createElement("div");
+            punto.classList.add("punto");
+            contenedor.appendChild(punto);
 
-                    <div class="flores__luz flores__luz--1"></div>
-                    <div class="flores__luz flores__luz--2"></div>
-                    <div class="flores__luz flores__luz--3"></div>
-                    <div class="flores__luz flores__luz--4"></div>
-                    <div class="flores__luz flores__luz--5"></div>
-                    <div class="flores__luz flores__luz--6"></div>
-                    <div class="flores__luz flores__luz--7"></div>
-                    <div class="flores__luz flores__luz--8"></div>
+            punto.style.left = "50%";
+            punto.style.top = "50%";
 
-                </div>
-                <div class="flores__linea">
-                    <div class="flores__linea__hojas flores__linea__hojas--1"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--2"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--3"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--4"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--5"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--6"></div>
-                </div>
-            </div>    
-        
-            <div class="flores flores--3">
-                <div class="flores__hojas flores__hojas--3">
-                    <div class="flores__hojas flores__hojas--1"></div>
-                    <div class="flores__hojas flores__hojas--2"></div>
-                    <div class="flores__hojas flores__hojas--3"></div>
-                    <div class="flores__hojas flores__hojas--4"></div>
-                    <div class="flores__con-circulo"></div>
+            const animacion = punto.animate(
+                [
+                    { transform: "translate(-50%, -50%) rotate(-50deg)" },
+                    { transform: "translate(5%, -20%)"}
+                ],
+                {
+                    duration: 2000 + Math.random() * 2000,
+                    easing: "linear",
+                    iterations: Infinity,
+                    direction: "alternate",
+                }
+            );
+            return { punto, animacion };
+        }
 
-                    <div class="flores__luz flores__luz--1"></div>
-                    <div class="flores__luz flores__luz--2"></div>
-                    <div class="flores__luz flores__luz--3"></div>
-                    <div class="flores__luz flores__luz--4"></div>
-                    <div class="flores__luz flores__luz--5"></div>
-                    <div class="flores__luz flores__luz--6"></div>
-                    <div class="flores__luz flores__luz--7"></div>
-                    <div class="flores__luz flores__luz--8"></div>
+        function iniciarAnimacion() {
+            for (let i = 0; i < numPuntos; i++) {
+                crearPuntos();
+            }
+        }
 
-                </div>
-                <div class="flores__linea">
-                    <div class="flores__linea__hojas flores__linea__hojas--1"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--2"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--3"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--4"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--5"></div>
-                    <div class="flores__linea__hojas flores__linea__hojas--6"></div>
-                </div>
-            </div> 
-            
-            <div class="gierba_creciendo">
-                <div class="flore__pasto flor__pasto--1">
-                    <div class="flore__pasto--top"></div>
-                    <div class="flore__pasto--bottom"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--1"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--2"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--3"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--4"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--5"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--6"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--7"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--8"></div>
-                    <div class="flor__pasto__cubierta"></div>
-                </div>
-            </div>
-            
-            <div class="gierba_creciendo">
-                <div class="flore__pasto flor__pasto--2">
-                    <div class="flore__pasto--top"></div>
-                    <div class="flore__pasto--bottom"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--1"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--2"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--3"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--4"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--5"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--6"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--7"></div>
-                    <div class="flor__pasto__hojas flor__pasto__hojas--8"></div>
-                    <div class="flor__pasto__cubierta"></div>
-                </div>
-            </div>
-            
-
-        </div>
-    
+        iniciarAnimacion();
+    </script>
 </body>
 </html>
+
